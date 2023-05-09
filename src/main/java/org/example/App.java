@@ -12,7 +12,7 @@ public class App {
         printCollection(listInteger);
     }
 
-    public static void printCollection(Collection collection) {
+    public static void printCollection(Collection <?> collection) {
         for (Object element : collection) {
             System.out.println(element);
 
