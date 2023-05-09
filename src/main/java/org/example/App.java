@@ -20,3 +20,4 @@ public class App {
     }
 }
 
+// use wilcard when we don`t know which type we get
