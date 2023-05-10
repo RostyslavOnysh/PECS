@@ -3,6 +3,7 @@ package Model;
 import Model.Planes.CargoPlane;
 import Model.Planes.MilitaryPlane;
 import Model.Planes.PassangerPlane;
+import Model.Planes.Plane;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -41,5 +42,28 @@ public class Main {
         List<MilitaryPlane> mp = List.of(militaryPlane1, militaryPlane2, militaryPlane3);
         List<CargoPlane> cp = List.of(cargoPlane1, cargoPlane2, cargoPlane3);
         List<PassangerPlane> pp = List.of(passangerPlane1, passangerPlane2, passangerPlane3);
+
+        getAverageYear(mp);
+        getAverageYear(cp);
+        getAverageYear(pp);
+
+    }
+
+    public static double getAverageYear(List<? extends Plane> planes) {   // List <? extends Plane> ----> пряме використання covariant
+        if (planes.isEmpty()) {
+            return 0;
+        }
+        int yearSum = 0;
+        for (Plane plane : planes) {
+            yearSum += plane.getYear();
+        }
+        return (double) yearSum / planes.size();
     }
 }
+
+/*
+В данному коді ми розглядаємо Producer extends
+
+список наших підтипів не являєтся тим самим що і список наших типів тому потрібно досягати коваріантності
+считування інфи то продюсер
+ */
